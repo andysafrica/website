@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andy Jones – AWS Cloud Engineer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <h1>Andy Jones – AWS Cloud Engineer - Site is under construction!</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#register">Register</a></li>
+        <li><a href="#login">Login</a></li>
+        <li><span class="toggle-dark" onclick="toggleDarkMode()">🌓 Dark Mode</span></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Experienced AWS Solution Architect and Cloud Engineer specializing in secure, scalable cloud infrastructure and DevSecOps solutions.
+    </p>
+  </section>
+
+  <section id="services">
+    <h2>Services</h2>
+    <ul>
+      <li>AWS Account Provisioning & Setup</li>
+      <li>On-Premises to AWS Migration</li>
+      <li>Cloud Security, Compliance, and Networking</li>
+    </ul>
+  </section>
+
+  <section id="blog">
+    <h2>Recent Articles</h2>
+    <div id="article-list">
+      <p>Loading articles...</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Andy Jones. All rights reserved.
+  </footer>
+
+  <!-- Contact Form -->
+  <div id="contactForm" class="popup">
+    <form id="contactFormDetails">
+      <h3>Contact Me <span class="close" data-popup="contactForm">&times;</span></h3>
+      <input type="text" id="contactName" placeholder="Name" required />
+      <input type="text" id="contactCompany" placeholder="Company" required />
+      <input type="email" id="contactEmail" placeholder="Email" required />
+      <input type="tel" id="contactPhone" placeholder="Phone (Optional)" />
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <!-- Register Form -->
+  <div id="registerForm" class="popup">
+    <form id="registerFormDetails">
+      <h3>Register <span class="close" data-popup="registerForm">&times;</span></h3>
+      <input type="text" id="firstName" placeholder="First Name" required />
+      <input type="text" id="lastName" placeholder="Last Name" required />
+      <input type="text" id="country" placeholder="Country" required />
+      <input type="text" id="regUsername" placeholder="Username" required />
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit" id="registerSubmit">Register</button>
+    </form>
+  </div>
+
+  <!-- Login Form -->
+  <div id="loginForm" class="popup">
+    <form id="loginFormDetails">
+      <h3>Login <span class="close" data-popup="loginForm">&times;</span></h3>
+      <input type="text" id="loginUsername" placeholder="Username" required />
+      <input type="password" id="loginPassword" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</body>
+</html>

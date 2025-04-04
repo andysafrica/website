@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Login – CDSO</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .login-container {
+      max-width: 400px;
+      margin: 5rem auto;
+      padding: 2rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background: #f9f9f9;
+      text-align: center;
+    }
+    .login-container h2 {
+      margin-bottom: 1.5rem;
+    }
+    .login-container input {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      font-size: 1rem;
+    }
+    .login-container button {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      margin-top: 1rem;
+      background-color: #0077cc;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Admin Login</h2>
+    <form id="adminLoginForm">
+      <input type="text" id="adminUsername" placeholder="Username" required />
+      <input type="password" id="adminPassword" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+    <p id="loginMessage" style="color:red; margin-top: 1rem;"></p>
+  </div>
+
+  <script>
+    document.getElementById("adminLoginForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById("adminUsername").value.trim();
+      const password = document.getElementById("adminPassword").value.trim();
+
+      try {
+        const res = await fetch("https://cdso.tech/admin/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password }),
+        });
+
+        const result = await res.json();
+        if (res.ok) {
+          localStorage.setItem("authToken", result.token);
+          window.location.href = "admin-dashboard.html";
+        } else {
+          document.getElementById("loginMessage").textContent = result.error || "Login failed";
+        }
+      } catch (err) {
+        console.error("Login error:", err);
+        document.getElementById("loginMessage").textContent = "Server error during login";
+      }
+    });
+  </script>
+</body>
+</html>
